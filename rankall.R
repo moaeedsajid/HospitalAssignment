@@ -1,7 +1,9 @@
 # rankall.R
 # Moaeed Sajid
-# V1 1/12/17
+#V1.1 1/12/17
+#Updated so global num value is not being reset in the for loop
 
+# V1 1/12/17
 # Args (outcome, num = "best)
 # Return dataframe of hospitals in each state for a particular outcome and position
 
@@ -59,14 +61,15 @@ rankall <- function(outcome, num = "best") {
                 #Calculate ranking 
                 
                 if (num == "best") {
-                        num <- 1
+                        statenum <- 1
                 }
                 if (num == "worst") {
-                        num <- countta
+                        statenum <- countta
                 }
                 
                 #Convert to numeric
-                ranking <- as.numeric(num)
+                ranking <- as.numeric(statenum)
+                #print (ranking)
                 
                 #Add hospital for this state to the rankallrst dataframe
                 if (countta < ranking) {
